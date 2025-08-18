@@ -1,38 +1,188 @@
-.App {
-  text-align: center;
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f7fafc;
+  color: #1f2937;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app.dark {
+  background: #0f172a;
+  color: #e5e7eb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-body {
+  display: flex;
+  min-height: 0;
+  flex: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content {
+  flex: 1;
+  display: flex;
+  min-height: calc(100vh - 64px);
+  padding-left: 300px; /* space for fixed side panel */
+}
+
+/* Navbar */
+.navbar {
+  height: 64px;
+  background: #2563eb;
+  color: #fff;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 14px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select {
+  border-radius: 8px;
+  border: none;
+  padding: 6px 8px;
+}
+
+.mode-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Side Panel */
+.side-panel {
+  position: fixed;
+  left: 0; top: 64px;
+  width: 300px;
+  bottom: 0;
+  border-right: 1px solid rgba(0,0,0,0.08);
+  padding: 14px;
+  overflow: auto;
+  background: #ffffff;
+  color: #111827;
+}
+
+.app.dark .side-panel {
+  background: #111827;
+  color: #e5e7eb;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.panel-heading {
+  margin: 10px 0 8px;
+  font-weight: 700;
+}
+
+.steps-container {
+  max-height: 52vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.step {
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.stat {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.slider {
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Canvas area + controls */
+.canvas-wrap {
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+.canvas-header {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.app.dark .canvas-header {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.control-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+}
+.control-btn.secondary { background: #6b7280; }
+.control-btn.warning   { background: #f59e0b; }
+
+.canvas-area {
+  flex: 1;
+  min-height: 0;
+}
+.visualizer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+
+.controls {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.bars-container {
+  display: flex;
+  align-items: flex-end;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 400px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  padding: 0.5rem;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.bar {
+  background: var(--accent-color);
+  margin: 0 2px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  border-radius: 4px 4px 0 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bar-label {
+  position: absolute;
+  top: -20px;
+  font-size: 0.8rem;
+  color: var(--text-color);
 }
