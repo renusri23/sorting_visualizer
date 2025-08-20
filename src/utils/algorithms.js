@@ -1,9 +1,3 @@
-/**
- * Each algorithm returns frames for animation:
- * frame: { array: number[], highlight: number[] (indexes), done?: number[] }
- * logs: string[] human-readable steps
- * stats: { comparisons, swaps }
- */
 
 export function computeFrames(name, input) {
   const arr = [...input];
@@ -40,7 +34,6 @@ function bubbleFrames(a) {
   logs.push("Sorted!");
   return { frames, logs, stats: { comparisons, swaps } };
 }
-
 function insertionFrames(a) {
   const frames = [{ array: [...a], highlight: [] }];
   const logs = ["Start Insertion Sort"];
