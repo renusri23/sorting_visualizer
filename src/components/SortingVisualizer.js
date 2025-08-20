@@ -281,7 +281,7 @@ function SortingVisualizer({ selectedAlgo, arraySize, setSteps, setStats, darkMo
         <input
           type="range"
           min="10"
-          max="100"
+          max="200"
           value={speed}
           onChange={(e) => setSpeed(Number(e.target.value))}
           style={{ width: 140 }}
