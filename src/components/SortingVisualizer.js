@@ -46,11 +46,16 @@ function SortingVisualizer({ selectedAlgo, arraySize, setSteps, setStats, darkMo
     sceneRef.current = scene;
 
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
-    camera.position.set(-40, 25, 70);
+    camera.position.set(-30,30, 60);
     cameraRef.current = camera;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(width, height);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
     rendererRef.current = renderer;
     mount.innerHTML = "";
     mount.appendChild(renderer.domElement);
@@ -61,14 +66,14 @@ function SortingVisualizer({ selectedAlgo, arraySize, setSteps, setStats, darkMo
     controlsRef.current = controls;
 
     // lights + grid
-    const amb = new THREE.AmbientLight(0xffffff, 1);
+    const amb = new THREE.AmbientLight(0xffffff, 2);
     scene.add(amb);
     const dir = new THREE.DirectionalLight(0xffffff, 1);
-    dir.position.set(40, 25, 70);
+    dir.position.set(40, 50, 70);
     scene.add(dir);
 
     const grid = new THREE.GridHelper(250, 25, 0x999999, 0xcccccc);
-    grid.material.opacity = darkMode ? 1 : 0.2;
+    grid.material.opacity = darkMode ? 0.5 : 0.2;
     grid.material.transparent = true;
     scene.add(grid);
 

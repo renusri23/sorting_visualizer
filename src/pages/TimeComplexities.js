@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../App.css";
 export default function TimeComplexities() {
   return (
     <div style={{ padding: 100, maxWidth: 900 }}>
