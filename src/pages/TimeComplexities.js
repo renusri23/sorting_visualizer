@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TimeComplexities() {
   return (
-    <div style={{ padding: 18, maxWidth: 900 }}>
+    <div style={{ padding: 100, maxWidth: 900 }}>
       <h2>Time & Space Complexity</h2>
       <table style={{ borderCollapse: "collapse", width: "100%" }}>
         <thead>
