@@ -9,8 +9,8 @@ import "./App.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [steps, setSteps] = useState([]);            // log lines
-  const [stats, setStats] = useState(null);          // { comparisons, swaps, timeMs }
+  const [steps, setSteps] = useState([]);       
+  const [stats, setStats] = useState(null);  
   const [arraySize, setArraySize] = useState(25);
   const [selectedAlgo, setSelectedAlgo] = useState("Bubble Sort");
 

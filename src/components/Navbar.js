@@ -31,7 +31,7 @@ function Navbar({ darkMode, setDarkMode, selectedAlgo, setSelectedAlgo }) {
           onClick={() => setDarkMode(!darkMode)}
           title="Toggle dark/light"
         >
-          {darkMode ? "🌞 Light" : "🌙 Dark"}
+          {darkMode ? " Light" : " Dark"}
         </button>
       </div>
     </div>
